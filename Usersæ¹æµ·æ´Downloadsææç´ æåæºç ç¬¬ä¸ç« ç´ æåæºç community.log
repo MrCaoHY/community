@@ -1,0 +1,10 @@
+2022-06-02 11:53:17.411  INFO 50360 --- [main] com.example.community.LoggerTest         : Starting LoggerTest using Java 1.8.0_281 on LAPTOP-546BSCGG with PID 50360 (started by 曹海洋 in C:\Users\曹海洋\IdeaProjects\community)
+2022-06-02 11:53:17.412 DEBUG 50360 --- [main] com.example.community.LoggerTest         : Running with Spring Boot v2.7.0, Spring v5.3.20
+2022-06-02 11:53:17.413  INFO 50360 --- [main] com.example.community.LoggerTest         : No active profile set, falling back to 1 default profile: "default"
+2022-06-02 11:53:19.454  INFO 50360 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2022-06-02 11:53:20.027  INFO 50360 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2022-06-02 11:53:20.090  INFO 50360 --- [main] com.example.community.LoggerTest         : Started LoggerTest in 3.004 seconds (JVM running for 4.062)
+2022-06-02 11:53:20.353  INFO 50360 --- [main] com.example.community.LoggerTest         : 这是info
+2022-06-02 11:53:20.356 DEBUG 50360 --- [main] com.example.community.LoggerTest         : 这是debug
+2022-06-02 11:53:20.356 ERROR 50360 --- [main] com.example.community.LoggerTest         : 这是error
+2022-06-02 11:53:20.356  WARN 50360 --- [main] com.example.community.LoggerTest         : 这是warn
