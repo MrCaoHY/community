@@ -1,5 +1,6 @@
 package com.example.community;
 
+import com.example.community.util.CommunityUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,5 +23,11 @@ public class LoggerTest {
         log.error("这是error");
         log.trace("这是trace");
         log.warn("这是warn");
+    }
+
+    @Test
+    public void testMd5(){
+        String pwd = "password";
+        System.out.println(CommunityUtil.md5(pwd));
     }
 }
