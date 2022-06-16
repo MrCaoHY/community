@@ -145,10 +145,19 @@ public class UserService implements CommunityConstant {
         LoginTicket loginTicket = new LoginTicket();
         loginTicket.setUserId(user.getId());
         loginTicket.setTicket(CommunityUtil.generateUUID());
+        loginTicket.setStatus(0);
         loginTicket.setExpired(new Date(System.currentTimeMillis() + expiredSecond * 1000));
         loginTicketMapper.insert(loginTicket);
-        map.put("ticket",loginTicket);
+        map.put("ticket",loginTicket.getTicket());
         return map;
 
+    }
+
+    public void logout(String ticket){
+        loginTicketMapper.updateTicket(ticket);
+    }
+
+    public LoginTicket findLoginTicket(String ticket) {
+        return loginTicketMapper.selectByTicket(ticket);
     }
 }

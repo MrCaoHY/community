@@ -2,6 +2,7 @@ package com.example.community.dao;
 
 import com.example.community.entity.LoginTicket;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface LoginTicketMapper {
@@ -18,6 +19,9 @@ public interface LoginTicketMapper {
     int updateByPrimaryKey(LoginTicket record);
 
     LoginTicket selectByTicket(String ticket);
+
+    @Update("update login_ticket set status = 1 where ticket = #{ticket}")
+    int updateTicket(String ticket);
 
 
 }

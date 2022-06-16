@@ -1,6 +1,7 @@
 package com.example.community;
 
 import com.example.community.dao.DiscussPostMapper;
+import com.example.community.dao.LoginTicketMapper;
 import com.example.community.entity.DiscussPost;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,14 @@ public class MapeerTest {
 
     @Autowired
     private DiscussPostMapper discussPostMapper;
+
+    @Autowired
+    private LoginTicketMapper loginTicketMapper;
+
+    @Test
+    public void testTicket(){
+        loginTicketMapper.updateTicket("659777f1fc944b8299f977455ee82d7c");
+    }
 
     @Test
     public void testSelectPosts(){
