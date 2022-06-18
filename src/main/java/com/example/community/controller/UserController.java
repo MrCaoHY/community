@@ -1,5 +1,6 @@
 package com.example.community.controller;
 
+import com.example.community.annotation.LoginRequired;
 import com.example.community.entity.User;
 import com.example.community.service.UserService;
 import com.example.community.util.CommunityUtil;
@@ -43,12 +44,14 @@ public class UserController {
 
     @Autowired
     private HostHolder hostHolder;
-
+    //规定需要登录才能跳转页面
+    @LoginRequired
     @GetMapping("/setting")
     public String getSettingPage(){
         return "site/setting";
     }
 
+    @LoginRequired
     //更新头像
     @PostMapping("/upload")
     public String uploadHeader(MultipartFile headerImage, Model model){
