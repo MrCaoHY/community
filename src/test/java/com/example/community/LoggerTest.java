@@ -27,7 +27,6 @@ public class LoggerTest {
 
     @Test
     public void testMd5(){
-        String pwd = "password";
-        System.out.println(CommunityUtil.md5(pwd));
+        System.out.println(CommunityUtil.md5("123456"+"7216475a4e634036ab44d2fe94cef4c3"));
     }
 }

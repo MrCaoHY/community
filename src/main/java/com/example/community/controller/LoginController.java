@@ -117,7 +117,7 @@ public class LoginController implements CommunityConstant {
             cookie.setPath(contextPath);
             cookie.setMaxAge(expired);
             response.addCookie(cookie);
-            log.info("用户[%s]登录成功",username);
+            log.info("用户{}登录成功",username);
             return "redirect:/index";
         } else {
             model.addAttribute("usernameMsg", login.get("usernameMsg"));

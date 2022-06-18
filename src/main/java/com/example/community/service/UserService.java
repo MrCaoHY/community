@@ -50,6 +50,7 @@ public class UserService implements CommunityConstant {
         return userMapper.selectByPrimaryKey(id);
     }
 
+    //注册
     public Map<String, Object> register(User user) {
         Map<String, Object> map = new HashMap<>();
         //空值处理
@@ -102,6 +103,7 @@ public class UserService implements CommunityConstant {
         return map;
     }
 
+    //激活账号
     public int activation(int userId, String code){
         User user = userMapper.selectByPrimaryKey(userId);
         if (user.getStatus() == 1) {
@@ -113,6 +115,7 @@ public class UserService implements CommunityConstant {
         }
     }
 
+    //登录验证
     public Map<String, Object> login(String username, String password, int expiredSecond){
         Map<String, Object> map = new HashMap<>();
         if (StringUtils.isBlank(username)) {
@@ -153,11 +156,28 @@ public class UserService implements CommunityConstant {
 
     }
 
+    //退出登录
     public void logout(String ticket){
         loginTicketMapper.updateTicket(ticket);
     }
 
+    //查找用户凭证信息
     public LoginTicket findLoginTicket(String ticket) {
         return loginTicketMapper.selectByTicket(ticket);
+    }
+
+
+    //修改用户头像
+    public int updateHeader(int userId, String headerUrl){
+        return userMapper.updateByPrimaryKeySelective(User.builder().id(userId).headerUrl(headerUrl).build());
+    }
+
+    public int changePwd(User user, String newpwd,String ticket){
+        user.setSalt(CommunityUtil.generateUUID());
+        user.setPassword(CommunityUtil.md5(newpwd + user.getSalt()));
+        int i = userMapper.updateByPrimaryKeySelective(user);
+        //先修改密码,再清空权限
+        logout(ticket);
+        return i;
     }
 }

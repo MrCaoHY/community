@@ -3,6 +3,7 @@ package com.example.community;
 import com.example.community.dao.DiscussPostMapper;
 import com.example.community.dao.LoginTicketMapper;
 import com.example.community.entity.DiscussPost;
+import com.example.community.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,6 +20,8 @@ import java.util.List;
 @SpringBootTest
 public class MapeerTest {
 
+    @Autowired
+    private UserService userService;
     @Autowired
     private DiscussPostMapper discussPostMapper;
 
@@ -39,5 +42,20 @@ public class MapeerTest {
         }
         int i = discussPostMapper.selectDiscussPostRows(149);
         System.out.println(i);
+    }
+
+    @Test
+    public void testSubString(){
+        String s = "12324dsad.png";
+        int i = s.indexOf(".");
+        System.out.println(i);
+        String substring = s.substring(i);
+        System.out.println(substring);
+    }
+
+    @Test
+    public void testUpload (){
+        int xxx = userService.updateHeader(154, "xxx");
+        System.out.println(xxx);
     }
 }
