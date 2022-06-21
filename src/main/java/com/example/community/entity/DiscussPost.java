@@ -19,9 +19,9 @@ public class DiscussPost implements Serializable {
 
     private String title;
 
-    private Integer type;
+    private Integer type = 0;
 
-    private Integer status;
+    private Integer status = 0;
 
     private Date createTime;
 
