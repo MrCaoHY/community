@@ -1,16 +1,17 @@
 package com.example.community.controller;
 
 import com.example.community.entity.DiscussPost;
+import com.example.community.entity.Page;
 import com.example.community.entity.User;
 import com.example.community.service.DiscussPostService;
+import com.example.community.service.UserService;
 import com.example.community.util.CommunityConstant;
 import com.example.community.util.CommunityUtil;
 import com.example.community.util.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -20,9 +21,12 @@ import java.util.Date;
  * @author: CaoHaiyang
  * @create: 2022-06-20 22:41
  **/
-@RestController
+@Controller
 @RequestMapping("/discuss")
 public class DiscussPostController implements CommunityConstant {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private DiscussPostService discussPostService;
@@ -46,5 +50,21 @@ public class DiscussPostController implements CommunityConstant {
 
         // 报错的情况将来统一处理
         return CommunityUtil.getJSONString(0, "发布成功！");
+    }
+
+    /**
+     * 帖子详情
+     * 通过id查找帖子
+     */
+    @GetMapping("/detail/{discussPostId}")
+    public String getDiscussPost(@PathVariable("discussPostId") int discussPostId, Model model, Page page) {
+        // 帖子
+        DiscussPost post = discussPostService.findDiscussPostById(discussPostId);
+        model.addAttribute("post", post);
+        // 作者
+        User user = userService.findUserById(Integer.parseInt(post.getUserId()));
+        model.addAttribute("user", user);
+
+        return "site/discuss-detail";
     }
 }

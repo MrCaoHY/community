@@ -45,4 +45,12 @@ public class DiscussPostService {
 
         return discussPostMapper.insert(post);
     }
+
+    /**
+     * 帖子详情
+     * 通过id查找帖子
+     */
+    public DiscussPost findDiscussPostById(int id) {
+        return discussPostMapper.selectByPrimaryKey(id);
+    }
 }
