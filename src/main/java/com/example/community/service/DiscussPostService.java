@@ -1,6 +1,7 @@
 package com.example.community.service;
 
 import com.example.community.dao.DiscussPostMapper;
+import com.example.community.entity.Comment;
 import com.example.community.entity.DiscussPost;
 import com.example.community.util.SensitiveFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +53,19 @@ public class DiscussPostService {
      */
     public DiscussPost findDiscussPostById(int id) {
         return discussPostMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 更新评论数量
+     *
+     * @param id
+     * @param commentCount
+     * @return
+     */
+    public int updateCommentCount(int id, int commentCount) {
+        DiscussPost discussPost = new DiscussPost();
+        discussPost.setId(id);
+        discussPost.setCommentCount(commentCount);
+        return discussPostMapper.updateByPrimaryKeySelective(discussPost);
     }
 }

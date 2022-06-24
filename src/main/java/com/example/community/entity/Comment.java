@@ -14,6 +14,7 @@ public class Comment implements Serializable {
 
     private Integer targetId;
 
+    // 0 代表正常, 1 代表被删除了 或者 不可用了
     private Integer status;
 
     private Date createTime;
