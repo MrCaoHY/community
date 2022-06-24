@@ -19,13 +19,13 @@ public class DiscussPost implements Serializable {
 
     private String title;
 
-    private Integer type = 0;
+    private Integer type ;
 
-    private Integer status = 0;
+    private Integer status ;
 
     private Date createTime;
 
-    private Integer commentCount = 0 ;
+    private Integer commentCount ;
 
     private Double score;
 

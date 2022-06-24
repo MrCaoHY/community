@@ -57,5 +57,8 @@ public class MapeerTest {
     public void testUpload (){
         int xxx = userService.updateHeader(154, "xxx");
         System.out.println(xxx);
+
+        char[] a = new char[]{'a','b'};
+        char c = a[0];
     }
 }

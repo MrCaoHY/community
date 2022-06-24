@@ -35,6 +35,7 @@ public class DiscussPostController implements CommunityConstant {
     private HostHolder hostHolder;
 
     @PostMapping("/add")
+    @ResponseBody
     public String addDiscussPost(String title, String content) {
         User user = hostHolder.getUser();
         if (user == null) {
