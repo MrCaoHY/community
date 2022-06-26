@@ -180,4 +180,8 @@ public class UserService implements CommunityConstant {
         logout(ticket);
         return i;
     }
+
+    public User findUserByName(String toName) {
+        return userMapper.selectByUsername(toName);
+    }
 }

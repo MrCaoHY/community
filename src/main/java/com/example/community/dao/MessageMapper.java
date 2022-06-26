@@ -36,4 +36,7 @@ public interface MessageMapper {
 
     // 查询未读消息数量
     int selectUnreadConversation(int userId, String conversationId);
+
+    //更改消息状态
+    int updateStatus(List<Integer> ids, int status);
 }
