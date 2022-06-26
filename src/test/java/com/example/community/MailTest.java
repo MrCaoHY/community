@@ -1,6 +1,7 @@
 package com.example.community;
 
 import cn.hutool.core.lang.UUID;
+import com.example.community.util.CommunityUtil;
 import com.example.community.util.MailClient;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +43,12 @@ public class MailTest {
     public void testUUID(){
         String s = UUID.randomUUID().toString();
         System.out.println(s);
+    }
+
+    @Test
+    void testPWD(){
+        String s = "123456"+"12345";
+        String s1 = CommunityUtil.md5(s);
+        System.out.println(s1);
     }
 }

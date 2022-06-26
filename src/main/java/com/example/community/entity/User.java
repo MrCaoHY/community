@@ -155,4 +155,6 @@ public class User implements Serializable {
         result = prime * result + ((getCreateTime() == null) ? 0 : getCreateTime().hashCode());
         return result;
     }
+
+
 }

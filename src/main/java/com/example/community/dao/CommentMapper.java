@@ -25,7 +25,7 @@ public interface CommentMapper {
 
     @Select({"select id, user_id, entity_type, entity_id, target_id, content, status, create_time " +
             "from comment " +
-            "where entity_id=#{entityId} and entity_type=#{entityType} " +
+            "where entity_id=#{entityId} and entity_type=#{entityType} order by create_time desc " +
             "limit #{offset},#{limit}"
     })
     List<Comment> selectAllByEntityTypeAndEntityId(@Param("entityType") int entityType, @Param("entityId") int entityId,
