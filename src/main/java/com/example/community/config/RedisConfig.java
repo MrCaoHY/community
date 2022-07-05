@@ -1,10 +1,16 @@
 package com.example.community.config;
 
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ResourceLoader;
+import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
+
+import java.util.LinkedHashSet;
+import java.util.List;
 
 /**
  * @program: community
@@ -29,4 +35,7 @@ public class RedisConfig {
         template.afterPropertiesSet();
         return template;
     }
+
+
+
 }
